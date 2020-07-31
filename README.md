@@ -1,4 +1,6 @@
 # PowerShellRapidFunctionDev
 Materials from my talk with David Wiggs on Rapid Function Development
 
-Stand by, folks. Uploads are in progress. Will remove this text when done.
+Slides: https://www.slideshare.net/franklesniak/rapid-powershell-function-development
+
+Recording coming soon!
