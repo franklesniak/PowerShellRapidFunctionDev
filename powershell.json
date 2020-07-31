@@ -1,0 +1,43 @@
+{
+	// Place your snippets for powershell here. Each snippet is defined under a snippet name and has a prefix, body and 
+	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
+	// same ids are connected.
+
+	"Robust foreach": {
+	 	"prefix": "foreach-custom",
+	 	"body": [
+			"foreach (\\$item in \\$collection)",
+			"{",
+			"\tWrite-Progress -Activity \"Description of activity.\" `",
+			"\t\t\t\t   -Status \"Working on \\$item\" `",
+			"\t\t\t\t   -PercentComplete (((\\$collection.IndexOf(\\$item)) / \\$collection.Count) * 100)",
+			"\t$0",
+			"}",
+			"Write-Progress -Activity \"Description of activity.\" `",
+            "\t\t\t   -Status \"Done\" `",
+            "\t\t\t   -PercentComplete 100 `",
+            "\t\t\t   -Completed"
+	 	],
+	 	"description": "Foreach snippit including progress bar."
+	},
+
+	"Robust try": {
+		"prefix": "try-custom",
+		"body": [
+			"try",
+			"{",
+			"\tWrite-Verbose \"Trying activity.\"",
+			"\t$0",
+			"\tWrite-Verbose \"Completed activity.\"",
+			"}",
+			"catch",
+			"{",
+			"\tWrite-Warning \"Unable to do activity.\"",
+			"\t\\$ErrorMessage = \\$_.Exception.Message",
+			"\tWrite-Warning \"\\$ErrorMessage.\"",
+			"}"
+		],
+		"description": "Try/Catch snippit including Verbose and Warning output."
+	}
+}
